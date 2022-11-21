@@ -1,15 +1,22 @@
+"""jangoform URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
 from django.contrib import admin
 from django.urls import path,include
-from .import views
-from .views import about,Add_Student,Delete_Student,EditStudent
-
 
 urlpatterns = [
-    path('',views.home,name="home"),
-    path('signin',views.signin,name="signin"),
-    path('signout',views.signout,name="signout"),
-    path('about/',about.as_view(), name='about'),
-    path('add-student/',Add_Student.as_view(), name='add-student'),
-    path('delete_student/', Delete_Student.as_view(), name='delete-student'),
-    path('edit-student/<int:id>/', EditStudent.as_view(), name='edit-student')
+    path('admin/', admin.site.urls),
+    path('',include('gfg.urls')),
 ]
